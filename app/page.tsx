@@ -4,6 +4,11 @@ import Link from 'next/link';
 import styles from '@/app/ui/home.module.css';
 import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Home',
+};
 
 export default function Page() {
   return (
@@ -27,7 +32,7 @@ export default function Page() {
 
           </p>
           <Link
-            href="/login"
+            href="/dashboard/login"
             className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
           >
             <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
@@ -42,7 +47,7 @@ export default function Page() {
             className="hidden md:block"
             alt="Screenshots of the dashboard project showing desktop version"
           />
-            <Image
+          <Image
             src="/hero-mobile.png"
             width={560}
             height={620}
@@ -50,7 +55,7 @@ export default function Page() {
             alt="Screenshots of the dashboard project showing mobile version"
           />
         </div>
-       
+
       </div>
     </main>
   );
