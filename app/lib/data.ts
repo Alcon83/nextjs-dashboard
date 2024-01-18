@@ -1,6 +1,4 @@
 import { sql } from '@vercel/postgres';
-import { unstable_noStore as noStore } from 'next/cache';
-
 import {
   CustomerField,
   CustomersTableType,
@@ -11,6 +9,7 @@ import {
   Revenue,
 } from './definitions';
 import { formatCurrency } from './utils';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function fetchRevenue() {
   // Add noStore() here to prevent the response from being cached.
@@ -93,7 +92,6 @@ export async function fetchCardData() {
 
 const ITEMS_PER_PAGE = 6;
 export async function fetchFilteredInvoices(
-  
   query: string,
   currentPage: number,
 ) {
@@ -196,6 +194,7 @@ export async function fetchCustomers() {
 }
 
 export async function fetchFilteredCustomers(query: string) {
+  noStore();
   try {
     const data = await sql<CustomersTableType>`
 		SELECT

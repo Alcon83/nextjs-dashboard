@@ -7,7 +7,6 @@ import {
 import { lusitana } from '@/app/ui/fonts';
 import { fetchCardData } from '@/app/lib/data';
 
-
 const iconMap = {
   collected: BanknotesIcon,
   customers: UserGroupIcon,
@@ -36,6 +35,7 @@ export default async function CardWrapper() {
     </>
   );
 }
+
 export function Card({
   title,
   value,
